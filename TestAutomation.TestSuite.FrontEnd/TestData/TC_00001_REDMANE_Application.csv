@@ -1,0 +1,2 @@
+IterationName,HomePageURL,TestDataFile
+Register Person,https://rm-pree-demo.usgovvirginia.cloudapp.usgovcloudapi.net:11081/Curam/logon.jsp,C:\dev\PREE\TestAutomation\TestData\Curam_Test001.xls

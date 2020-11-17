@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2019 SCIGON SOLUTIONS LLC
+Copyright (c) 2019 Alex Kreston
+-->
+<?xml-stylesheet type="text/xsl" href="environment.xsl"?>
+<root>
+
+  <WebDriverPaths>
+    <IEDriver>..\..\..\Drivers</IEDriver>
+    <ChromeDriver>..\..\..\Drivers</ChromeDriver>
+    <FirefoxDriver>..\..\..\Drivers</FirefoxDriver>
+    <FirefoxBinary>..\..\..\Drivers</FirefoxBinary>
+  </WebDriverPaths>
+
+  <API_URLS>
+    
+  </API_URLS>
+  
+  <GlobalSettings>
+    <LocalResultsPath>C:\TestAutomationResults\</LocalResultsPath>
+    <TestDataSourcePath>C:\TestAutomationResults\</TestDataSourcePath>
+    <GlobalResultsPath>C:\TestAutomationResults\</GlobalResultsPath>
+    <TestDataFilePath>C:\TestAutomationResults\</TestDataFilePath>
+    <HomePageURL>
+      https://pr-web-srv-test.usgovvirginia.cloudapp.usgovcloudapi.net/Curam/logon.jsp
+    </HomePageURL>
+  </GlobalSettings>
+
+  <!--This is an example of databasse connection settings-->
+  <DatabaseConnection>
+    <dataSource>database.windows.net</dataSource>
+    <userId>user</userId>
+    <password>password</password>
+    <databaseName>Name</databaseName>
+  </DatabaseConnection>
+  
+</root>

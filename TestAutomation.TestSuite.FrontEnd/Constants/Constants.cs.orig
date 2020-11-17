@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TestAutomation.TestSuite.FrontEnd
+{
+
+    public enum TestDataParameters
+    {
+        HomePageURL,
+        UserId,
+        Password,
+        UserName,
+        UserJobTitle,
+        UserEmail,
+        UserPhone,
+<<<<<<< HEAD
+        ReferenceURL
+=======
+        PlanFoldersToSelect
+>>>>>>> origin/develop
+    }
+
+}

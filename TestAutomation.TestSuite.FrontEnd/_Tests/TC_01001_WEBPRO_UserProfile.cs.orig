@@ -1,0 +1,289 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TestAutomation.BaseFramework;
+
+namespace TestAutomation.TestSuite.FrontEnd
+{
+    [TestClass]
+    public class TC_01001_WEBPRO_UserProfile : AutomationTestCase
+    {
+        [TestMethod]
+        [TestCategory(Category.WP_SmokeTest)]
+        [TestCategory(Category.WP_ProductionSmokeTest)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "TC_01001_WEBPRO_UserProfile.csv", "TC_01001_WEBPRO_UserProfile#csv", DataAccessMethod.Sequential), DeploymentItem("TestData\\TC_01001_WEBPRO_UserProfile.csv")]
+        public void TestCase_01001_WEBPRO_UserProfile()
+        {
+            ExecuteTest();
+        }
+
+
+        protected override void ExecuteTest()
+        {
+            if(SharedSteps.WP_OpenHomePageAndLogIn()) return;
+
+            //Open My Profile Page
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.homePage_ProfileMenu_DropDown_Link, "Open Profile menu drop down");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.homePage_ProfileMenu_MyProfile_Link, "Click on My Profile link");
+
+                                    
+            //Verify My Profile Page Account Info Section
+<<<<<<< HEAD
+            // Verify User ID (Login)
+=======
+
+>>>>>>> develop
+            var verificationValue =
+                 TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_UserId_TextBox,
+                     "value");
+            var userId = DataDriver.GetTestCaseDataValueByName(TestDataParameters.UserId.ToString());
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(userId, verificationValue,
+                "Verify User ID Value: " + verificationValue);
+            //
+            verificationValue = TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_UserId_Text);
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(userId, verificationValue,
+                "Verify User Id Title Value: " + verificationValue);
+            //
+            var RenderedUserName = TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_Name_Text);
+            var userName = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_FirstName_TextBox, "value") + " " +
+                TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, "value");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(userName, RenderedUserName,
+                "Verify User Name Title Value: " + RenderedUserName);
+            //
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
+            verificationValue = TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_Email_Text);
+            var userEmail = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_Email_TextBox, "value");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(userEmail, verificationValue,
+                "Verify User Email Title Value: " + verificationValue);
+            //
+<<<<<<< HEAD
+            verificationValue = TestDriver.Retrievers_GetObjectText(Objects_WebPro.homePage_ProfileMenu_DropDown_Link).Replace("Welcome, ", "");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(RenderedUserName, verificationValue,
+                "Compare name under avatar with name in upper user menu dropdown");
+=======
+
+            verificationValue = TestDriver.Retrievers_GetObjectText(Objects_WebPro.homePage_ProfileMenu_DropDown_Link).Replace("Welcome, ", "");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(RenderedUserName, verificationValue, "Compare name under avatar with name in upper user menu dropdown");
+>>>>>>> develop
+
+            ////////////////////////////////////////////////////
+            // Negative testing for saving Profile           //
+            ///////////////////////////////////////////////////
+
+            //cannot save without first name
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_FirstName_TextBox, "", "Deleting text from first name field");
+<<<<<<< HEAD
+            var generatedLastName = Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 20);
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, generatedLastName, "Entering random last name");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Assertions_CompareTwoTextValues("Please enter a first name.", 
+                TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_FirstName_Error_Label), "Checking whether First Name Error Appeared");
+
+            //cannot save without last name
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, "", "Deleting text from last name field");
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_FirstName_TextBox, Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 20),
+                "Entering random first name");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Assertions_CompareTwoTextValues("Please enter a last name.", 
+                TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_LasttName_Error_Label), "Checking whether Last Name Error Appeared");
+
+            //Verify that User Name is updated after changing Last Name and First Name
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, 
+                Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 20), "Entering random last name");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Utilities_DelayTestExecution(2);
+            userName = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_FirstName_TextBox, "value") + " " +
+                TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, "value");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_Name_Text), 
+                userName, "Checking whether Username is updated");
+=======
+            var GeneratedLastName = Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 20);
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, GeneratedLastName, "Entering random last name");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Utilities_DelayTestExecution(5);
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive("Please enter a first name.", TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_FirstName_Error_Label), "Checking whether First Name Error Appeared");
+
+            //cannot save without last name
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, "", "Deleting text from last name field");
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_FirstName_TextBox, Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 20), "Entering random first name");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Utilities_DelayTestExecution(5);
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive("Please enter a last name.", TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_LasttName_Error_Label), "Checking whether Last Name Error Appeared");
+
+            //Verify that User Name is updated after changing Last Name and First Name
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 20), "Entering random last name");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Utilities_DelayTestExecution(5);
+            userName = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_FirstName_TextBox, "value") + " " +
+                TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_LastName_TextBox, "value");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_Name_Text), userName, "Checking whether Username is updated");
+>>>>>>> develop
+
+            //Changing email
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmail_Button, "Clicking on Change Email Button");
+            TestDriver.Utilities_DelayTestExecution(1);
+
+            //cannot save with both empty fields
+<<<<<<< HEAD
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_SaveButton, "Clicking on Save Email Button");
+            TestDriver.Assertions_CompareTwoTextValues("Please enter a valid email address.", 
+                TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_NewEmail_Error), "Checking error under new email field");
+            TestDriver.Assertions_CompareTwoTextValues("Please enter a valid email address.", 
+                TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_ConfirmEmail_Error), "Checking error under confirm email field");
+
+            //cannot save with one of the fields being empty
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_NewEmail_TextBox, "test@test.com", "Entering correct email into New Email field");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_SaveButton, "Clicking on Save Email Button");
+            TestDriver.Assertions_CompareTwoTextValues("Please enter a valid email address.", 
+                TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_ConfirmEmail_Error), "Checking error under confirm email field");
+
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_NewEmail_TextBox, "", "Deleting string from the New Email field");
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_ConfirmEmail_TextBox, "test@test.com", "Entering correct email into Confirm Email field");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_SaveButton, "Clicking on Save Email Button");
+            TestDriver.Assertions_CompareTwoTextValues("Please enter a valid email address.",
+                TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_NewEmail_Error),"Checking error under new email field");
+
+            //both fields valid but don't correspond
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_NewEmail_TextBox, "test@test.com", "Entering Email1 into the New Email field");
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_ConfirmEmail_TextBox, "test1@test.com", "Entering Email2 into Confirm Email field");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_SaveButton, "Clicking on Save Email Button");
+            TestDriver.Assertions_CompareTwoTextValues("Email addresses do not match.", 
+                TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_ConfirmEmail_Error),"Checking error under confirm email field");
+
+            //both fields valid and same
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_NewEmail_TextBox, "test@test.com", "Entering Email into the New Email field");
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_ConfirmEmail_TextBox, "test@test.com", "Entering same email into Confirm Email field");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfo_ChangeEmailModal_SaveButton, "Clicking on Save Email Button");
+            TestDriver.Utilities_DelayTestExecution(1);
+            userEmail = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_Email_TextBox, "value");
+            TestDriver.Assertions_CompareTwoTextValues("test@test.com", userEmail, "Comparing entered and saved emails");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes Button");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_Email_Text),
+                userEmail, "Verify User Email Title Value: " + userEmail);
+            TestDriver.Utilities_DelayTestExecution(1);
+
+             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //Verifying Phone Field
+            var phoneNumber = Utilities.Utility_GenerateRandomNumberInRange(10000, 1000000000).ToString();
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AccountInfo_PhoneNumber_TextBox, phoneNumber, "Entering random Phone Number");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Utilities_DelayTestExecution(2);
+            TestDriver.Assertions_CompareTwoTextValues(TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_Phone_Text),
+                phoneNumber, "Verify User Phone Numer Value");
+
+            //Verifying Title Field
+
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AdditionalInfoTab_Link, "Navigate to Aditional Info Tab");
+            var generatedTitle = Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 32);
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AdditionalInfo_Title_TextBox, generatedTitle, "Entering random Title");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AdditionalInfo_SaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_JobTitle_Text),
+                TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AdditionalInfo_Title_TextBox, "Value"), "Verify Job Title Value");
+
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AdditionalInfo_Title_TextBox, "", "Entering empty Title");
+            TestDriver.Actions_ClickWithJavaScriptExecutor(Objects_WebPro.myProfilePage_AdditionalInfo_SaveChanges_Button, "Clicking on Save Changes button");
+            //TestDriver.Utilities_DelayTestExecution(3);
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_JobTitle_Text),
+                TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AdditionalInfo_Title_TextBox, "Value"), "Verify Job Title Value");
+                                                  
+            //Verifying Assigment and Customer ID fields 
+            TestDriver.Utilities_DelayTestExecution(2);
+            var assigment = Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 32);
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AdditionalInfo_Assignment_Text, assigment, 
+                "Enter random text 1-32 characters long into Assignment field");
+            TestDriver.Utilities_DelayTestExecution(1);
+            var customerID = Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 27) + " " + Utilities.Utility_GenerateRandomNumberInRange(1, 9999).ToString();
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AdditionalInfo_CustomerId_Text, customerID,
+                "Enter random text 1-32 characters long into CustomerID field");
+            TestDriver.Utilities_DelayTestExecution(1);
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AdditionalInfo_SaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Utilities_DelayTestExecution(3);
+            // Need to refresh browser to update JS to display correct values
+            TestDriver.Utilities_RefreshBrowser();
+
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AdditionalInfoTab_Link, "Navigate to Aditional Info Tab");
+            var newAssigment = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AdditionalInfo_Assignment_Text, "value");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(newAssigment, assigment, "Verify changes persist on Assigment field");
+            
+            var newCustomerID = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AdditionalInfo_CustomerId_Text, "value");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(newCustomerID, customerID, "Verify changes persist on CustomerID field");
+
+            // Verify Location
+            var oldLocationValue = TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AdditionalInfo_Location_DropDown_Button);
+
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AdditionalInfo_Location_DropDown_Button, "Clicking on Location dropdown");
+            TestDriver.Utilities_DelayTestExecution(1);
+            var numberOfFolders = TestDriver.Retrievers_GetCollectionObjectCount(Objects_WebPro.myProfilePage_AdditionalInfo_Location_DropDown_Table);
+            var randomLocationFromDropdown = Utilities.Utility_GenerateRandomNumberInRange(0, numberOfFolders);
+            
+            TestDriver.Actions_ClickOnObjectFromCollectionByIndex(Objects_WebPro.myProfilePage_AdditionalInfo_Location_DropDown_Table,
+                randomLocationFromDropdown, "Select random folder from dropdown" );
+            var newLocationValue1 = TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AdditionalInfo_Location_DropDown_Button);
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AdditionalInfo_SaveChanges_Button, "Clicking on Save Changes button");
+            TestDriver.Utilities_DelayTestExecution(2);
+            
+            var newLocationValue2 = TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AdditionalInfo_Location_DropDown_Button);
+
+            TestDriver.Assertions_VerifyThatTextValuesDoNotMatch(oldLocationValue, newLocationValue2);
+            TestDriver.Assertions_CompareTwoTextValues(newLocationValue1, newLocationValue2, "Compare that selected location was realy saved");
+
+           
+=======
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_SaveBtn, "Clicking on Save Email Button");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive("Please enter a valid email address.", TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_NewEmail_Error),
+            "Checking error under new email field");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive("Please enter a valid email address.", TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_ConfirmEmail_Error),
+            "Checking error under confirm email field");
+
+            //cannot save with one of the fields being empty
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_NewEmail_TextBox, "test@test.com", "Entering correct email into New Email field");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_SaveBtn, "Clicking on Save Email Button");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive("Please enter a valid email address.", TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_ConfirmEmail_Error),
+            "Checking error under confirm email field");
+
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_NewEmail_TextBox, "", "Deleting string from the New Email field");
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_ConfirmEmail_TextBox, "test@test.com", "Entering correct email into Confirm Email field");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_SaveBtn, "Clicking on Save Email Button");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive("Please enter a valid email address.", TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_NewEmail_Error),
+            "Checking error under new email field");
+
+            //both fields valid but don't correspond
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_NewEmail_TextBox, "test@test.com", "Entering Email1 into the New Email field");
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_ConfirmEmail_TextBox, "test1@test.com", "Entering Email2 into Confirm Email field");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_SaveBtn, "Clicking on Save Email Button");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive("Email addresses do not match.", TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_ConfirmEmail_Error),
+            "Checking error under confirm email field");
+
+            //both fields valid and same
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_NewEmail_TextBox, "test@test.com", "Entering Email into the New Email field");
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_ConfirmEmail_TextBox, "test@test.com", "Entering same email into Confirm Email field");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AcInf_ChangeEmailModal_SaveBtn, "Clicking on Save Email Button");
+            TestDriver.Utilities_DelayTestExecution(1);
+            userEmail = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.myProfilePage_AccountInfo_Email_TextBox, "value");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive("test@test.com", userEmail,
+                "Comparing entered and saved emails");
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AccountInfoSaveChanges_Button, "Clicking on Save Changes Button");
+            TestDriver.Assertions_CompareTwoTextValuesCaseInsensitive(TestDriver.Retrievers_GetObjectText(Objects_WebPro.myProfilePage_UserTitle_Email_Text),
+                userEmail, "Verify User Email Title Value: " + verificationValue);
+            TestDriver.Utilities_DelayTestExecution(1);
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+>>>>>>> develop
+
+
+<<<<<<< HEAD
+=======
+            var randomTitleText = "QA TestValue - " + Utilities.Utility_GenerateRandomStringWithLengthInRange(1, 5);
+            TestDriver.Actions_EnterText(Objects_WebPro.myProfilePage_AdditionalInfo_Title_TextBox, randomTitleText, "Enter Random Title value: " + randomTitleText);
+            TestDriver.Utilities_DelayTestExecution(3);
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.myProfilePage_AdditionalInfo_SaveChanges_Button, "Click Save Changes button");
+>>>>>>> develop
+
+
+        }
+    }
+}

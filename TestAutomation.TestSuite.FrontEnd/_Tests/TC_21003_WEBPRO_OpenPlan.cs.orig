@@ -1,0 +1,74 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using TestAutomation.BaseFramework;
+
+namespace TestAutomation.TestSuite.FrontEnd
+{
+    [TestClass]
+    public class TC_21003_WEBPRO_OpenPlan : AutomationTestCase
+    {
+        [TestMethod]
+        [TestCategory(Category.WP_SmokeTest)]
+        [TestCategory(Category.WP_ProductionSmokeTest)]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "TC_21003_WEBPRO_OpenPlan.csv", "TC_21003_WEBPRO_OpenPlan#csv", DataAccessMethod.Sequential), DeploymentItem("TestData\\TC_21003_WEBPRO_OpenPlan.csv")]
+        public void TestCase_21003_WEBPRO_OpenPlan()
+        {
+            ExecuteTest();
+        }
+
+        protected override void ExecuteTest()
+        {
+<<<<<<< HEAD
+            SharedSteps.WP_OpenHomePageAndLogIn();
+                //go to plan folders
+=======
+            if(SharedSteps.WP_OpenHomePageAndLogIn()) return;;
+
+            //go to plan folders
+>>>>>>> develop
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.homePage_LeftSideMenu_Plans_TextLink, "Click on Plans Left Side Menu Item");
+            TestDriver.Utilities_DelayTestExecution(1);
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.homePage_LeftSideMenu_PlanFolders_TextLink, "Click on Plan Folders Left Side Menu Item");
+            
+            //select random parent folder
+            var countryFoldersCount = TestDriver.Retrievers_GetCollectionObjectCount(Objects_WebPro.plansPage_PlanFoldersSection_Country_Row);
+            var randomFolder = Utilities.Utility_GenerateRandomNumberInRange(1, countryFoldersCount);
+            TestDriver.Utilities_DelayTestExecution(1);
+            TestDriver.Actions_ClickOnObjectFromCollectionByIndexWithJavaExecutor(
+                    Objects_WebPro.plansPage_PlanFoldersSection_Country_Row, randomFolder,
+                    $"Click on country with Index: {randomFolder}");
+            //wrong country name???
+            var CountryName = TestDriver.Retrievers_GetObjectText(Objects_WebPro.plansPage_PlansFolders_SelectedFolder((randomFolder+1).ToString()));
+            GlobalReporter.ReportPassedStep($"Country name is {CountryName}");
+            
+            
+
+            //select random plan from opened directory (from first page)
+            var numberOfPlans = TestDriver.Retrievers_GetCollectionObjectCount(Objects_WebPro.plansPage_PlansSection_PlansTable_Row);
+            var planNumber = Utilities.Utility_GenerateRandomNumberInRange(1, numberOfPlans);
+            var planName = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.plansPage_PlansSection_PlansTable_Row_PlanName_Text(planNumber.ToString()), "title");
+            TestDriver.Actions_ClickOnObjectFromCollectionByIndex(Objects_WebPro.plansPage_PlansSection_PlansTable_Row, planNumber, $"Clicking on " +
+                $"plan {planName} " + "(on the first page)");
+            
+
+            //opening plan
+            TestDriver.Actions_ClickOnObject(Objects_WebPro.plansPage_PlansSection_Open_Button, "Clicking on Open button");
+            
+            TestDriver.Surveys_DoesObjectExist(Objects_WebPro.plansPage_OpenedPlan_Container);
+            string planPDF = TestDriver.Retrievers_GetObjectAttributeByName(Objects_WebPro.plansPage_OpenedPlan_Container, "src");
+            if (planPDF == "") { GlobalReporter.ReportFailure };
+            GlobalReporter.ReportPassedStep($"Plan address is {planPDF}");
+
+
+
+
+            }
+
+
+
+
+
+        
+    }
+}

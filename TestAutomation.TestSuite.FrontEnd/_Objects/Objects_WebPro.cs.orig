@@ -1,0 +1,405 @@
+﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using OpenQA.Selenium;
+
+
+namespace TestAutomation.TestSuite.FrontEnd
+{
+    public static class Objects_WebPro
+    {
+
+        #region Generic
+
+        public static By foldersPage_SelectFolders_Link = By.XPath("//i[@title='Select Folders']");
+
+
+
+        #endregion
+
+        #region Breadcrumbs
+
+        public static By breadcrumbs_Home_Link = By.XPath("//a[@title='SQAD MediaTools']");
+        public static By myViewsPage_DetailPage_Breadcrumb = By.XPath("/html/body//div[@class='page-content']/ul/li");
+
+        #endregion
+
+        #region Login Page
+
+        public static By loginPage_UserName_TextBox = By.Id("UserName");
+        public static By loginPage_Password_TextBox = By.Id("Password");
+        public static By loginPage_SignIn_Button = By.XPath("//button[@type='submit']");
+        public static By loginPage_ForgotPassword_Link = By.XPath("//a[@title='Request Password Reset']");
+
+        #endregion
+
+        #region Home Page
+
+        public static By homePage_Logo_Image = By.ClassName("logo-default");
+        public static By homePage_LeftSideMenu_Home_TextLink = By.XPath("//span[text()='Home']");
+        public static By homePage_LeftSideMenu_Plans_TextLink = By.CssSelector("#plans");
+        public static By homePage_LeftSideMenu_PlanFolders_TextLink = By.CssSelector("#plan_folders");
+        public static By homePage_LeftSideMenu_Authorizations_TextLink = By.XPath("//span[text()='Authorizations']");
+        public static By homePage_LeftSideMenu_MyAuthorizations_TextLink = By.XPath("//span[text()='My Authorizations']");
+        public static By homePage_LeftSideMenu_ViewsAndReports_TextLink = By.XPath("//span[text()='Views & Reports']");
+        public static By homePage_LeftSideMenu_MyViews_TextLink = By.XPath("//span[text()='My Views']");
+
+        public static By homePage_ProfileMenu_DropDown_Link = By.XPath("//span[@class='username username-hide-on-mobile']");
+
+        public static By homePage_ProfileMenu_MyProfile_Link = By.XPath("//a[@href='/MyProfile']");
+
+<<<<<<< HEAD
+        public static By homePage_HelpRequestMenu_DropDown_Link = By.XPath("//a/i[@class='fa fa-question-circle']");
+        public static By homePage_HelpRequestMenu_HelpRequest_Link = By.XPath("//li[@id='add-support']/a[@class='actions']");
+        
+
+        public static By homePage_Home_Reference = By.Id("reference");
+
+=======
+        public static By homePage_Home_Reference_Link = By.Id("reference");
+>>>>>>> develop
+
+        public static By homePage_Approvals_Pending_Text = By.XPath("//a[@href='/Approvals/Pending']/div");
+        public static By homePage_Approvals_Approved_Text = By.XPath("//a[@href='/Approvals/RecentActivity#/approved']/div");
+        public static By homePage_Approvals_Rejected_Text = By.XPath("//a[@href='/Approvals/RecentActivity#/rejected']/div");
+
+        public static By homePage_Approvals_Pending_Button = By.XPath("//a[@href='/Approvals/Pending']");
+        public static By homePage_Approvals_Approved_Button = By.XPath("//a[@href='/Approvals/RecentActivity#/approved']");
+        public static By homePage_Approvals_Rejected_Button = By.XPath("//a[@href='/Approvals/RecentActivity#/rejected']");
+
+        public static By homePage_LeftSideMenu_ViewsReports_TextLink = By.Id("views_&_reports");
+       // public static By homePage_LeftSideMenu_MyViews_TextLink = By.Id("my_views");
+
+        #endregion
+
+        #region My Views Page
+
+        public static By myViewsPage_Open_Button = By.XPath("//a[@href='/Views/Detail']");
+        public static By myViewsPage_ViewActions_Button = By.XPath("//a[@id='view-actions']");
+        public static By myViewsPage_ViewActionsMenu_New_Button = By.XPath("//a[@class='new-view']");
+
+        public static By myViewsPage_NewViewModal_Name_TextBox = By.XPath("//input[@id='name']");
+        public static By myViewsPage_NewViewModal_Description_TextBox = By.XPath("//textarea[@id='description']");
+        public static By myViewsPage_NewViewModal_Folder_DropDown = By.XPath("//select[@id='folder']");
+        public static By myViewsPage_NewViewModal_ResourceSets_Label = By.XPath("//div[@class='mt-checkbox-list']/label");
+        public static By myViewsPage_NewViewModal_ProductHierarchy_DropDown = By.XPath("//select[@id='product-hierarchy']");
+
+        public static By myViewsPage_NewViewModal_Localize_Checkbox = By.XPath("//select[@id='product-hierarchy']");
+        public static By myViewsPage_NewViewModal_DisplayMeasuresAsColumns_Checkbox = By.XPath("//select[@id='product-hierarchy']");
+
+        public static By myViewsPage_NewViewModal_Save_Button = By.XPath("//button[@id='save-view-properties']");
+        public static By myViewsPage_NewViewModal_Cancel_Button = By.XPath("//button[@id='afcd9645-257a-4bbd-9e37-4a81b5a53c37']");
+
+        public static By myViewsPage_VIEWSTable = By.XPath("//table[@id='datatable']/tbody/tr");
+        public static By myViewsPage_VIEWSTable_StatusText = By.XPath("//div[7]/div[@class='col-xs-12 value']");
+        public static By myViewsPage_VIEWSTable_Name_Column = By.XPath("//table[@id='datatable']/tbody/tr/td[1]");
+        public static By myViewsPage_DetailPage_ParametersButton = By.XPath("/ html//div[@id='load-grid-panel']//a[@title='Parameters']");
+        public static By myViewsPage_DetailPage_Table = By.XPath("/html//div[@id='load-grid-panel']");
+
+        #endregion
+
+        #region Create New View Page
+
+        public static By newViewPage_Measures_Tab = By.XPath("//a[@href='#tab-measures']");
+        public static By newViewPage_Periods_Tab = By.XPath("//a[@href='#tab-periods']");
+        public static By newViewPage_Groups_Tab = By.XPath("//a[@href='#tab-groups']");
+        public static By newViewPage_Filters_Tab = By.XPath("//a[@href='#tab-filters']");
+
+
+        public static By newViewPage_Measures_AddMeasure_Plus_Button = By.XPath("//div[@id='add-measure-btn']");
+
+        /*
+          This function will Generate XPath for Measure type item in Add Measure Drop Down in Create New View Page
+            Possible Values:
+            Costs
+            GRPs
+            Impressions
+            Secondary Impressions
+            Spots
+            Circulation
+            RateBase
+            Insertions
+            NEP
+            TRP
+            Clicks
+            Leads
+            */
+        public static By GenerateXPathFor_NewViewPage_Measures_AddMeasureDropdown_MeasureType_Link(string measureTypeText)
+        {
+            return By.XPath($"//ul[@id='add-measure-dropdown']/li/a[text()='{measureTypeText}']");
+        }
+
+        /*
+          This function will Generate XPath for Measure type item in Measure Properties Label in Create New View Page
+            Possible Values:
+            Caption
+            Measure Options
+            Currency Conversion
+            Source Options
+            Flexibility
+            Format Options
+            */
+        public static By GenerateXPathFor_NewViewPage_Measures_MeasureProperties_Label(string labelName)
+        {
+            return By.XPath($"//div[@id='panel-heading']/h4[text()='{labelName}']");
+        }
+
+        public static By newViewPage_Measures_Caption_TextField = By.XPath("//input[@id='Caption']");
+        public static By newViewPage_Measures_MeasureOptions_Gross_Button = By.XPath("//input[@id='Gross']");
+        public static By newViewPage_Measures_MeasureOptions_Net_Button = By.XPath("//input[@id='Net']");
+        public static By newViewPage_Measures_MeasureOptions_IncludeNonWorkingMedia_Checkbox = By.XPath("//input[@id='IncludeNonWorking']");
+        public static By newViewPage_Measures_MeasureOptions_IncludeCredit_Checkbox = By.XPath("//input[@id='IncludeCredit']");
+        public static By newViewPage_Measures_MeasureOptions_Levy_Checkbox = By.XPath("//input[@id='Levy']");
+        public static By newViewPage_Measures_MeasureOptions_AgencyFee_Checkbox = By.XPath("//input[@id='AgencyFee']");
+        public static By newViewPage_Measures_MeasureOptions_Vat_Checkbox = By.XPath("//input[@id='VAT']");
+
+        public static By newViewPage_Measures_CurrencyConversion_Target_DropDown = By.XPath("//button[@data-id='CurrencyID']");
+        public static By newViewPage_Measures_CurrencyConversion_Source_DropDown = By.XPath("//button[@data-id='CurrencyConversionSourceID']");
+
+        public static By GenerateXPathFor_NewViewPage_Measures_CurrencyConversion_TargetOption(string targetName)
+        {
+            return By.XPath($"//li/a[text()='{targetName}']");
+        }
+
+        public static By newViewPage_Periods_Broadcast_Link = By.XPath("//a[text()='Broadcast']");
+
+        public static By GenerateXPathFor_NewViewPage_Periods_PeriodYear(string yearValue)
+        {
+            return By.XPath($"//li/a[text()='{yearValue}']");
+        }
+
+
+
+
+
+        
+        #endregion
+
+
+        #region Plans Folders Page
+
+        public static By plansPage_SelectFolders_Link = By.XPath($"//i[@title='Select Folders']");
+
+        public static By plansPage_TopLevelFolder_TextLink = By.XPath("//a[@class='title icon icon - folder']");
+
+        public static By plansPage_SelectPlansModal_Select_Button = By.XPath("//a[@id='select-from-available']");
+        public static By plansPage_SelectPlansModal_DeSelect_Button = By.XPath("//a[@id='deselect-from-selected']");
+
+        public static By plansPage_SelectPlansModal_TextBasedSelection(string folderSortTextValue)
+        {
+            var xPathValue = $"//div[contains(text(),'{folderSortTextValue}')]";
+            return By.XPath(xPathValue);
+        }
+
+        public static List<string> allPlanFolderSelections = new List<string>()
+        {
+            "Author",
+            "Client",
+            "Location",
+            "Product Company",
+            "Product Division",
+            "Product Parent",
+            "Resource Set",
+            "Country",
+            "Plan Year",
+            "Plan Type",
+            "Product"
+        };
+
+        public static By plansPage_SelectPlansModal_Apply_Button = By.XPath("//button[contains(text(),'Apply')]");
+
+        public static By plansPage_PlanFoldersSection_Country_Row = By.XPath("//li[@title='Country']");
+
+        public static By plansPage_PlansSection_PlansTable = By.XPath("//table[@id='datatable']//tbody");
+
+        public static By plansPage_PlansSection_PlansTable_Row = By.XPath("//table[@id='datatable']//tbody//tr[@role='row']");
+
+        public static By plansPage_PlansSection_Header_SortingSelectorByName(string name)
+        {
+            return By.XPath($"//tr[@role='row']//th[text()='{name}']");
+        }
+
+        public static By plansPage_PlansSection_Open_Button = By.XPath("//div[@class='actions']/a");
+
+        public static By plansPage_OpenedPlan_Container = By.XPath("//embed[@id='plugin']");
+
+        public static By plansPage_PlansSection_PlansTable_Row_PlanName_Text(string index)
+        {
+            return By.XPath($"//table[@id='datatable']/tbody/tr[{index}]/td[1]");
+        }
+
+        public static By plansPage_PlansFolders_SelectedFolder(string index)
+        {
+            return By.XPath($"//div[@id='plan-folders-container']//li[@title='Country'][{index}]");
+        }
+
+        public static By plansPage_OpenedPlan_Close_Button = By.XPath("//button[text()='Close']");
+        #endregion
+
+        #region My Authorizations Page
+
+        public static By myAuthorizationsPage_Open_Button = By.XPath("//a[text()='Open']");
+
+        public static By  myAuthorizationsPage_AuthorizationsList_Table = By.XPath("//table[@id='datatable']");
+
+        public static By myAuthorizationsPage_AuthorizationsListTable_Row = By.XPath("//table[@id='datatable']/tr/td/div");
+
+        public static By myAuthorizationPage_AuthorizationsList_WholeTable = By.XPath("//table[@id='datatable']/tbody/tr");
+
+        public static By myAuthorizationsPage_AuthorizationDetails_Table = By.XPath("//table[@class='properties-table']");
+
+        public static By myAuthorizationsPage_AuthorizationPDF_Close_Button = By.XPath("//button[@class='btn btn-circle btn-default close-pdf-view']");
+
+        public static By myAuthorizationPage_AuthorizationListTable_NameColumn = By.XPath("//table[@id='datatable']/tbody/tr/td[2]");
+
+        public static By myAuthorizatinPage_OpenedAuthorizationFrame = By.XPath("/html//embed[@id='plugin']");
+
+        
+
+        public static By myAuthorizationsPage_AuthorizationsHeader_SortingSelectorByName(string name)
+        {
+            return By.XPath($"//tr[@role='row']//th//div[@title='{name}']");
+        }
+
+
+
+        #endregion
+
+        #region Authorizations Folders Page
+
+        public static By authorizationsFoldersPage_AuthorizationsTable_FolderLink =
+            By.XPath("//div[@id='authorization-folders-container']./li[@title='Client']");
+
+
+        #endregion
+
+<<<<<<< HEAD
+        #region Help Request form
+
+        public static By submitHelpRequestForm_Button = By.CssSelector("#submit-request");
+        public static By submitHelpRequestForm_AlertInfo = By.CssSelector(".alert-info");
+        public static By submitHelpRequestForm_EmptyFieldSubjectError = By.Id("Subject-error");
+        public static By submitHelpRequestForm_EmptyFieldMessageError = By.Id("Message-error");
+        public static By submitHelpRequestForm_SubjectField = By.XPath("/html//input[@id='Subject']");
+        public static By submitHelpRequestForm_MessageField = By.XPath("/html//textarea[@id='Message']");
+        public static By submitHelpRequestForm_PunctuationSubjectError = By.CssSelector("#Subject-error");
+        public static By submitHelpRequestForm_PunctuationMessageError = By.CssSelector("#Message-error");
+        public static By submitHelpRequestForm_AddFiles_Button = By.CssSelector(".btn-primary.fileinput-button");
+        public static By submitHelpRequestForm_ScreenCapture_Button = By.CssSelector("#screen-capture");
+        public static By submitHelpRequestForm_Reset_Button = By.CssSelector("#reset");
+        public static By submitHelpRequestForm_AttachmentsSection = By.XPath("//div[@id='attachments-preview']/div");
+        public static By submitHelpRequestForm_GlyphiconTrashDelete_Button = By.CssSelector("#attachments-preview .btn-danger");
+
+
+        public static By submitHelpRequestForm_SubmitRequest_Button = By.CssSelector("#submit-request");
+        public static By submitHelpRequestForm_SuccessSubmitToaster = By.CssSelector(".toast-success");
+        public static By submitHelpRequestForm_SuccessSubmitToaster_Close = By.XPath("//div[@id='toast-container']//button[@role='button']");
+        public static By submitHelpRequestForm_Cancel_Button = By.CssSelector(".bootstrap-dialog-footer-buttons .btn-default:nth-of-type(1)");
+        public static By submitHelpRequestModalWindowForm = By.CssSelector(".modal-content");
+
+
+
+
+        #endregion
+
+=======
+>>>>>>> develop
+        #region Approvals Page
+
+        public static By approvalsPage_ItemsList_TableRows = By.XPath("//tbody//tr");
+
+        #endregion
+
+        #region My Profile Page
+
+        public static By myProfilePage_AccountInfoTab_Link = By.XPath("//a[@href='#tab-account-info']");
+        public static By myProfilePage_AdditionalInfoTab_Link = By.XPath("//a[@href='#tab-additional-info']");
+        public static By myProfilePage_ChangePassword_Link = By.XPath("//a[@href='#tab-change-password']");
+        public static By myProfilePage_Changepicure_Link = By.XPath("//a[@href='#tab-change-picture']");
+
+        public static By myProfilePage_UserTitle_Name_Text = By.XPath("//div[@class='profile-usertitle-name']");
+        public static By myProfilePage_UserTitle_JobTitle_Text = By.XPath("//div[@class='profile-usertitle-jobtitle']");
+        public static By myProfilePage_UserTitle_UserId_Text = By.XPath("//div[@class='profile-usertitle-username']");
+        public static By myProfilePage_UserTitle_Email_Text = By.XPath("//div[@class='profile-usertitle-email']");
+        public static By myProfilePage_UserTitle_Phone_Text = By.XPath("//div[@class='profile-usertitle-phone']");
+
+        public static By myProfilePage_AccountInfo_UserId_TextBox = By.XPath("//input[@id='Username']");
+        public static By myProfilePage_AccountInfo_FirstName_TextBox = By.XPath("//input[@id='FirstName']");
+        public static By myProfilePage_AccountInfo_LastName_TextBox = By.XPath("//input[@id='LastName']");
+        public static By myProfilePage_AccountInfo_Email_TextBox = By.XPath("//input[@id='Email']");
+        public static By myProfilePage_AccountInfo_ChangeEmail_Button = By.CssSelector("#change-email");
+        public static By myProfilePage_AccountInfoSaveChanges_Button = By.XPath("//button[@id='btn-save-account-info']");
+        public static By myProfilePage_AccountInfo_FirstName_Error_Label = By.CssSelector("#FirstName-error");
+        public static By myProfilePage_AccountInfo_LasttName_Error_Label = By.CssSelector("#LastName-error");
+        public static By myProfilePage_AcInf_ChangeEmailModal_SaveBtn = By.CssSelector("#save-email");
+        public static By myProfilePage_AcInf_ChangeEmailModal_NewEmail_TextBox = By.CssSelector("#NewEmail");
+        public static By myProfilePage_AcInf_ChangeEmailModal_NewEmail_Error = By.CssSelector("#NewEmail-error");
+        public static By myProfilePage_AcInf_ChangeEmailModal_ConfirmEmail_TextBox = By.CssSelector("#ConfirmEmail");
+        public static By myProfilePage_AcInf_ChangeEmailModal_ConfirmEmail_Error = By.CssSelector("#ConfirmEmail-error");
+
+
+        public static By myProfilePage_AdditionalInfo_Title_TextBox = By.XPath("//input[@id='Title']");
+        public static By myProfilePage_AdditionalInfo_Location_DropDown_Button = By.CssSelector(".bootstrap-select [type]");
+        public static By myProfilePage_AdditionalInfo_Location_DropDown_Table = By.XPath("//ul[@role='menu']/li");
+        public static By myProfilePage_AdditionalInfo_Assignment_Text = By.XPath("//input[@id='Assignment']");
+        public static By myProfilePage_AdditionalInfo_CustomerId_Text = By.XPath("//input[@id='CustomerId']");
+        public static By myProfilePage_AdditionalInfo_SaveChanges_Button = By.XPath("//button[@id='btn-save-additional-info']");
+
+        public static By myProfilePage_AccountInfo_ChangeEmail_Button = By.CssSelector("#change-email");
+        public static By myProfilePage_AccountInfoSaveChanges_Button = By.XPath("//button[@id='btn-save-account-info']");
+        public static By myProfilePage_AccountInfo_FirstName_Error_Label = By.CssSelector("#FirstName-error");
+        public static By myProfilePage_AccountInfo_LasttName_Error_Label = By.CssSelector("#LastName-error");
+        public static By myProfilePage_AccountInfo_ChangeEmailModal_SaveButton = By.CssSelector("#save-email");
+        public static By myProfilePage_AccountInfo_ChangeEmailModal_NewEmail_TextBox = By.CssSelector("#NewEmail");
+        public static By myProfilePage_AccountInfo_ChangeEmailModal_NewEmail_Error = By.CssSelector("#NewEmail-error");
+        public static By myProfilePage_AccountInfo_ChangeEmailModal_ConfirmEmail_TextBox = By.CssSelector("#ConfirmEmail");
+        public static By myProfilePage_AccountInfo_ChangeEmailModal_ConfirmEmail_Error = By.CssSelector("#ConfirmEmail-error");
+
+        public static By myProfilePage_ChangePassword_SaveButton = By.XPath("//button[@id='btn-save-password']");
+        public static By myProfilePage_Save_CurrentPassword_ErrorLable = By.XPath("//label[@id='CurrentPassword-error']");
+        public static By myProfilePage_ChangePassword_CurrentPassword_Field = By.XPath("//input[@id='CurrentPassword']");
+        public static By myProfilePage_ChangePassword_NewPassword_Field = By.XPath("//input[@id='NewPassword']");
+        public static By myProfilePage_ChangePassword_ConfirmPassword_Field = By.XPath("//input[@id='ConfirmPassword']");
+        public static By myProfilePage_ChangePassword_ConfirmPassword_ErrorContainer = By.XPath("//div[@class='error-container']");
+
+
+        #endregion
+
+        #region Reference Page
+
+        public static By ReferencePage_NewDocument_Button = By.XPath("//div[@class='actions']/a");
+        public static By NewReferenceDocument_Create_Button = By.Id("upsert-reference-document-btn");
+        public static By NewReferenceDocument_Cancel_Button = By.XPath("//div[@class='modal-dialog']//button[@class='btn btn-default']");
+        public static By NewReferenceDocument_NameError_Label = By.Id("Name-error");
+        public static By NewReferenceDocument_URLError_Label = By.Id("Url-error");
+        public static By referencePage_NewReferenceModal_DocumentNameError_Text = By.Id("SourceFileName-error");
+        public static By NewReferenceDocument_NameField_TextBox = By.XPath("//input[@name='Name']");
+        public static By NewReferenceDocument_UrlField_TextBox = By.XPath("//input[@name='Url']");
+        public static By NewReferenceDocument_Url_CheckBox = By.Id("reference-upsert-document-type-url");
+        public static By NewReferenceDocument_Doc_CheckBox = By.Id("reference-upsert-document-type-document");
+        public static By NewReferenceDocument_DocField = By.XPath("//input[@name='SourceFileName']");
+        public static By NewReferenceDocument_FolderDrpdwnBtn = By.CssSelector("[type='button']");
+        public static By NewReferenceDocument_ModalWindow = By.ClassName("modal-dialog");
+        public static By NewReferenceDocument_FolderDrpdwnList = By.XPath("//ul[@role='menu']/li");
+        public static By NewReferenceDocument_Description = By.CssSelector("textarea");
+        public static By NewReferenceDocument_BrowseBtn = By.Id("reference-upsert-document-file-btn");
+        public static By ReferenceFolder_Element_Options = By.XPath("//div/button[@href='javascript:void(0);']");
+        public static By ReferenceFolder_Element_Options_OpenLink = By.XPath("//ul[@class='dropdown-menu pull-left']//a");
+        public static By ReferenceFolder_Element_Options_Download = By.XPath("//ul[@class='dropdown-menu pull-left']//button");
+        public static By ReferenceFolder_Element_Options_Edit = By.XPath("//ul[@class='dropdown-menu pull-left']//button[@class='btn btn-default edit']");
+        public static By ReferenceFolder_Search = By.XPath("//input[@type='search']");
+
+        #endregion
+
+        #region LeftMenu
+        public static By LeftMenu_Plans = By.Id("plans");
+        public static By LeftMenu_Plans_PlanFolders = By.Id("plan_folders");
+        #endregion
+
+        #region Plan Folders
+        public static By Algeria = By.XPath("//li[@title='Country']//a[.='ALGERIA']");
+        public static By SomePlan = By.XPath("//td[@title='DZ FY 17/18 GILLETTE SYSTEMS']");
+
+        #endregion
+
+    }
+}
