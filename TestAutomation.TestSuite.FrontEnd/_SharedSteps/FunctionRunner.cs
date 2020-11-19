@@ -240,7 +240,8 @@ namespace TestAutomation.TestSuite.FrontEnd
                                 if (modifier.Equals("not"))
                                 {
                                     GlobalReporter.ReportFailure(stepDescription, !optional);
-                                } else
+                                }
+                                else
                                 {
                                     GlobalReporter.ReportSuccess(stepDescription);
                                 }
@@ -250,7 +251,8 @@ namespace TestAutomation.TestSuite.FrontEnd
                                 if (!modifier.Equals("not"))
                                 {
                                     GlobalReporter.ReportFailure(stepDescription, !optional);
-                                } else
+                                }
+                                else
                                 {
                                     GlobalReporter.ReportSuccess(stepDescription);
                                 }
@@ -334,6 +336,56 @@ namespace TestAutomation.TestSuite.FrontEnd
                             else
                             {
                                 PDFFileTestEngine.VerifyTextExistsInPdfFile(filePath, variableValue, true, optional);
+                            }
+
+                            break;
+                        }
+
+                    case "Capture Element Text":
+                        {
+                            var ids = ObjectRepositoryManager.CombineElementIdentifiers(elementName);
+                            var elementText = TestDriver.Retrievers_GetObjectText(ids, optional);
+
+                            if (elementText.Length > 0)
+                            {
+                                DataDriver.AddRuntimeDataValueByName(variableName, elementText);
+                            }
+                            else
+                            {
+                                if (optional)
+                                {
+                                    GlobalReporter.ReportInfo("Text could not be caputed for element: " + elementName);
+                                }
+                                else
+                                {
+                                    GlobalReporter.ReportFailure("Text could not be caputed for element: " + elementName);
+                                }
+
+                            }
+
+                            break;
+                        }
+
+                    case "Capture Element Attribute Value":
+                        {
+                            var ids = ObjectRepositoryManager.CombineElementIdentifiers(elementName);
+                            var attributeValue = TestDriver.Retrievers_GetObjectAttributeByName(ids, variableValue, optional);
+
+                            if (attributeValue.Length > 0)
+                            {
+                                DataDriver.AddRuntimeDataValueByName(variableName, attributeValue);
+                            }
+                            else
+                            {
+                                if (optional)
+                                {
+                                    GlobalReporter.ReportInfo("Value of attribute: " + variableValue + ", could not be caputed for element: " + elementName);
+                                }
+                                else
+                                {
+                                    GlobalReporter.ReportFailure("Value of attribute: " + variableValue + ", could not be caputed for element: " + elementName);
+                                }
+
                             }
 
                             break;
