@@ -137,7 +137,8 @@ namespace TestAutomation.TestSuite.FrontEnd
                     case "Execute Shared Function":
                         {
                             //Load shared functions file
-                            var sharedFunctionData = ExcelFileServer2010.ReadExcelFileWithHeaders("C:\\TestAutomationResults\\FunctionLibrary.xlsx", variableValue);
+                            var sharedFunctionsFilePath = DataDriver.GetConfigurationValueInSectionByName("GlobalSettings", "SharedFunctionsFilePath") + "FunctionLibrary.xlsx";
+                            var sharedFunctionData = ExcelFileServer2010.ReadExcelFileWithHeaders(sharedFunctionsFilePath, variableValue);
 
                             if (sharedFunctionData.Count != 0)
                             {

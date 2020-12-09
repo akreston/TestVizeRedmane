@@ -25,7 +25,7 @@ namespace TestAutomation.TestSuite.Services
         public static string GenerateExpectedFilePath()
         {
             var expectedFileName = DataDriver.GetTestCaseDataValueByName(TestDataParameters.ExpectedResultsFileName.ToString());
-            var expectedFilesPath = DataDriver.GetConfigurationValueInSectionByName("GlobalSettings", "TestDataSourcePath") + "\\ExpectedFiles";
+            var expectedFilesPath = DataDriver.GetConfigurationValueInSectionByName("GlobalSettings", "TestConfigurationSourcePath") + "\\ExpectedFiles";
 
             return expectedFilesPath + "\\" + expectedFileName;
         }

@@ -32,7 +32,7 @@ namespace TestAutomation.TestSuite.FrontEnd
 
             GlobalReporter.ReportInfo(TestContext.TestName);
 
-            var testDataFilePath = DataDriver.GetConfigurationValueInSectionByName("GlobalSettings", "TestDataFilePath");
+            var testDataFilePath = DataDriver.GetConfigurationValueInSectionByName("GlobalSettings", "TestCaseFilePath");
             var testDataFileName = TestContext.TestName + ".xlsx";
             string testDataFileFullPath = testDataFilePath + testDataFileName;
             var testName = TestContext.TestName;

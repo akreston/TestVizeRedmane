@@ -207,12 +207,12 @@
     <Content Include="TestData\TC_PR_3242_REDMANE_3_Members_MAGI_Coverage_New.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="SummaryReportTemplate.xls">
+    <Content Include="SummaryReportTemplate.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestExecutionReportTemplate.xls">
+    </Content>
+    <Content Include="TestExecutionReportTemplate.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestData\TC_00001_REDMANE_Application.csv">
