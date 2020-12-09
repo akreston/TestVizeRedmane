@@ -120,28 +120,6 @@
     <Compile Include="_Tests\Refactor_CreateODs.cs" />
     <Compile Include="_Tests\TC_PR_3242_REDMANE_3_Members_MAGI_Coverage_New.cs" />
     <Compile Include="_Tests\TestSuite_0001.cs" />
-    <Compile Include="_Tests\TC_999999_Exploratory.cs" />
-    <Compile Include="_Tests\TC_00001_REDMANE_RegisterPerson.cs" />
-    <Compile Include="_Tests\TC_PR_3253_REDMANE_MAGI_Adult_Receiving_Med_CHIP_Not_Elig.cs" />
-    <Compile Include="_Tests\TC_PR_4625_REDMANE_Sixty_Year_Old_Eligible_For_State_Adult.cs" />
-    <Compile Include="_Tests\TC_PR_4636_REDMANE_Preg_Police_Eligible_For_Safety_Net.cs" />
-    <Compile Include="_Tests\TC_PR_4641_REDMANE_Family_Eligible_For_State_PC_State_Child.cs" />
-    <Compile Include="_Tests\TC_PR_3587_REDMANE_Auto_Eligibility_Adoption_Title_IV_E.cs" />
-    <Compile Include="_Tests\TC_PR_3283_REDMANE_MAGI_Five_Percent_Disregard.cs" />
-    <Compile Include="_Tests\TC_PR_4852_REDMANE_2_Members_MEDDisabled_Husband_State_Wife.cs" />
-    <Compile Include="_Tests\TC_PR_3260_REDMANE_Grandparents_MAGI_Parent_MAGI_Child.cs" />
-    <Compile Include="_Tests\TC_PR_3278_REDMANE_Grandchildren_MAGI_Child.cs" />
-    <Compile Include="_Tests\TC_PR_3262_REDMANE_MAGI_Parent_Other_Caretaker_MAGI_Child.cs" />
-    <Compile Include="_Tests\TC_PR_3246_REDMANE_Pregnant_Woman_Income.cs" />
-    <Compile Include="_Tests\TC_PR_3304_REDMANE_Not_In_Foster_Care_W_ADFAN_On_BD.cs" />
-    <Compile Include="_Tests\TC_PR_3303_REDMANE_Applicant_Is_Temporary_Resident.cs" />
-    <Compile Include="_Tests\TC_PR_3282_REDMANE_Siblings_MAGI_Child.cs" />
-    <Compile Include="_Tests\TC_PR_3307_REDMANE_Siblings_Former_Foster_Care.cs" />
-    <Compile Include="_Tests\TC_PR_3259_REDMANE_Unrelated_Caretaker.cs" />
-    <Compile Include="_Tests\TC_PR_3255_REDMANE_End_State_Renal_Disease.cs" />
-    <Compile Include="_Tests\TC_PR_3242_REDMANE_3_Members_MAGI_Coverage.cs" />
-    <Compile Include="_Tests\TC_00003_REDMANE_TwoMembers.cs" />
-    <Compile Include="_Tests\TC_00002_REDMANE_HappyPath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
