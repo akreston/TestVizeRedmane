@@ -19,9 +19,9 @@ Copyright (c) 2019 Alex Kreston
   
   <GlobalSettings>
     <LocalResultsPath>C:\TestAutomationResults\</LocalResultsPath>
-    <TestDataSourcePath>C:\TestAutomationResults\</TestDataSourcePath>
+    <TestDataSourcePath>C:\dev\PREE\TestAutomation\TestData\TestConfiguration\</TestDataSourcePath>
     <GlobalResultsPath>C:\TestAutomationResults\</GlobalResultsPath>
-    <TestDataFilePath>C:\TestAutomationResults\</TestDataFilePath>
+    <TestDataFilePath>C:\dev\PREE\TestAutomation\TestData\</TestDataFilePath>
     <HomePageURL>
       https://pr-web-srv-test.usgovvirginia.cloudapp.usgovcloudapi.net/Curam/logon.jsp
     </HomePageURL>
