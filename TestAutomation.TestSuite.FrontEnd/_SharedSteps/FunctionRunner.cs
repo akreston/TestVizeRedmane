@@ -64,12 +64,13 @@ namespace TestAutomation.TestSuite.FrontEnd
                         {
                             TestDriver.Actions_NavigateToURL(variableValue);
                             break;
+
                         }
 
                     case "Click":
                         {
                             var ids = ObjectRepositoryManager.CombineElementIdentifiers(elementName);
-                            TestDriver.Utilities_WaitForObjectToBecomeClickable(ids, 5);
+                            //TestDriver.Utilities_WaitForObjectToBecomeClickable(ids, 5);
                             TestDriver.Actions_ClickOnObject(ids, "Click on: " + elementName, optional);
                             break;
                         }
@@ -155,6 +156,7 @@ namespace TestAutomation.TestSuite.FrontEnd
                             DataDriver.AddRuntimeDataValueByName(variableName, newRandomString);
                             stepDescription = "Generated random value: " + newRandomString + ", with variable name: " + variableName;
                             GlobalReporter.ReportSuccess(stepDescription);
+                            TestDriver.Utilities_DelayTestExecution(2);
                             break;
                         }
 
