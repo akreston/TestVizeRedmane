@@ -75,6 +75,13 @@ namespace TestAutomation.TestSuite.FrontEnd
                             break;
                         }
 
+                    case "Click with Javascript":
+                        {
+                            var ids = ObjectRepositoryManager.CombineElementIdentifiers(elementName);
+                            TestDriver.Actions_ClickWithJavaScriptExecutor(ids, "Click on: " + elementName, optional);
+                            break;
+                        }
+
                     case "Right Click":
                         {
                             var ids = ObjectRepositoryManager.CombineElementIdentifiers(elementName);

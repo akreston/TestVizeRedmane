@@ -23,7 +23,7 @@ namespace TestAutomation.TestSuite.FrontEnd
 
             //Temporary
             //ObjectRepositoryManager.PopulateElementsIntoClientObjectRepository();
-            ObjectRepositoryManager.PopulateNewElementsFromClientRepository();
+            //ObjectRepositoryManager.PopulateNewElementsFromClientRepository();
 
 
             //Pdf document tester

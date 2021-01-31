@@ -24,7 +24,7 @@ Copyright (c) 2019 Alex Kreston
     <TestCaseFilePath>C:\dev\TestAutomation\TestData\</TestCaseFilePath>
     <SharedFunctionsFilePath>C:\dev\TestAutomation\TestData\SharedFiles\</SharedFunctionsFilePath>
     <HomePageURL>
-      https://rm-pree-build:11081/Curam/logon.jsp
+      https://sit1-cw.preeservices.com/Curam/logon.jsp
     </HomePageURL>
   </GlobalSettings>
 
