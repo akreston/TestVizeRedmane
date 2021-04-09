@@ -7,7 +7,6 @@ namespace TestAutomation.TestSuite.FrontEnd
     public class TS_00001_SmokeTest: AutomationTestCase_ExternalData
     {
         [TestMethod]
-        [TestCategory(Category.SmokeTest)]
         [DeploymentItem("TestData\\TS_0001_SmokeTest.csv")]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "TS_0001_SmokeTest.csv", "TS_0001_SmokeTest#csv", DataAccessMethod.Sequential)]
         public void TestSuite_00001_REDMANE_SmokeTest()

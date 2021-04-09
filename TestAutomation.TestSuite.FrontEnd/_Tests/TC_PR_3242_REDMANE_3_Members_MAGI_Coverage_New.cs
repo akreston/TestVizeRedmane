@@ -21,11 +21,6 @@ namespace TestAutomation.TestSuite.FrontEnd
         protected override void ExecuteTest()
         {
 
-            //Temporary
-            //ObjectRepositoryManager.PopulateElementsIntoClientObjectRepository();
-            //ObjectRepositoryManager.PopulateNewElementsFromClientRepository();
-
-
             //Pdf document tester
             //PDFFileTestEngine.VerifyTextExistsInPdfFile(@"C:\TestAutomationResults\Notice+of+Decision+-+256.pdf", "Abella END-TO-END-17");
 
